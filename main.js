@@ -6,11 +6,35 @@ var sound = new Howl({
 
 sound.play();
 
-fetch('https://api.giphy.com/v1/gifs/search?api_key=Y4rrTavmb3YXxa8cJYvXG4g6zGwzw3qD&q=synthwave&limit=1&offset=0&rating=G&lang=en')
+let curGif = 0;
+let gifTotal = 100;
+
+function getGifs() {
+  let gifs;
+  fetch('https://api.giphy.com/v1/gifs/search?api_key=Y4rrTavmb3YXxa8cJYvXG4g6zGwzw3qD&q=synthwave&limit=' + gifTotal + '&offset=0&rating=G&lang=en')
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    console.log(data.data);
-    document.getElementById("gifSpot").src = data.data[0].images.original.url;
+    gifs = data.data;
+    document.getElementById("bodyId").style.backgroundImage = "url(" + gifs[0].images.original.url + ")";
+  })
+  .then(() => {
+    console.log(gifs);
+    gifLoop(gifs);
   });
+}
+
+//setNewGif();
+
+function gifLoop(gifs) {
+  curGif += 1;
+  curGif %= gifTotal;
+  document.getElementById("bodyId").style.backgroundImage = "url(" + gifs[curGif].images.original.url + ")";
+  setTimeout(gifLoop, 10000, gifs);
+}
+
+console.log(getGifs());
+//gifLoop();
+
+console.log(getGifs());
