@@ -1,13 +1,15 @@
-songs = ["adam1.mp3","adam2.mp3","adam3.mp3","adam4.mp3","adam5.mp3"]
+songs = ["adam1","adam2","adam3","adam4","adam5"]
 curSong = 0
 curVolume = .5;
 
 var sound = new Howl({
-  src: ["songs/"+songs[0]],
+  src: ["songs/"+songs[0]]+".mp3",
   format: ['mp3'],
   loop: false,
   volume: curVolume
 });
+
+document.getElementById("songName").textContent = songs[curSong];
 
 sound.on('end', function() {
   curSong += 1;
@@ -19,11 +21,12 @@ function changeSong() {
   sound.stop();
 
   sound = new Howl({
-    src: ["songs/"+songs[curSong]],
+    src: ["songs/"+songs[curSong]]+".mp3",
     format: ['mp3'],
     loop: false,
     volume: curVolume
   });
+  document.getElementById("songName").textContent = songs[curSong];
 
   if (isPlaying) {
     sound.play();
@@ -70,12 +73,12 @@ function playToggle() {
   if (isPlaying) {
     isPlaying = false;
     sound.pause();
-    document.getElementById("playToggle").textContent = "►";
+    document.getElementById("playToggle").textContent = "Play";
   }
   else {
     isPlaying = true;
     sound.play();
-    document.getElementById("playToggle").textContent = "	■";
+    document.getElementById("playToggle").textContent = "Pause";
   }
 }
 
