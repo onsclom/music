@@ -39,6 +39,7 @@ body {
   border-radius: 3vw;
   margin: 0 2rem;
   padding: 1vw;
+  transition: background-color .5s ease;
 }
 
 .textHolder {
