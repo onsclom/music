@@ -12,29 +12,39 @@ body {
 }
 
 .navbar {
-  background-color: #333;
-  opacity: .7;
-  transition: opacity .6s;
+  background-image: linear-gradient(rgba(0, 0, 0, 0),rgb(0, 0, 0));
+  opacity: 1;
+  transition: opacity .4s;
   overflow: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 15vh;
+  height: 30vh;
   display: flex; /* or inline-flex */
   justify-content: space-between;
 }
 
 /* Style the links inside the navigation bar */
 .navbar a {
+  cursor: pointer;
   display: inline-block;
   color: #f2f2f2;
   text-align: center;
-  height: 100%;
   text-decoration: none;
-  font-size: 3rem;
-  vertical-align: middle; 
-  line-height: 15vh;
-  padding: 0 2rem;
+  font-size: min(6vw, 3rem);
+  opacity: .7;
+  border-radius: 3vw;
+  margin: 0 2rem;
+  padding: 1vw;
+}
+
+.textHolder {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 1rem 0;
 }
 
 /* Change the color of links on hover */

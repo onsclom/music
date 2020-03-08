@@ -93,5 +93,5 @@ function navbarTransparent() {
 
 function navbarShow() {
   console.log("should show");
-  document.getElementById("navbar").style.opacity = .7;
+  document.getElementById("navbar").style.opacity = 1;
 }
