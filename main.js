@@ -4,7 +4,8 @@ curSong = 0
 var sound = new Howl({
   src: ["songs/"+songs[0]],
   format: ['mp3'],
-  loop: false
+  loop: false,
+  volume: .5
 });
 
 sound.on('end', function() {
@@ -19,10 +20,13 @@ function changeSong() {
   sound = new Howl({
     src: ["songs/"+songs[curSong]],
     format: ['mp3'],
-    loop: false
+    loop: false,
+    volume: .5
   });
 
-  sound.play();
+  if (isPlaying) {
+    sound.play();
+  }
 
   sound.on('end', function() {
     changeSong();
@@ -65,12 +69,12 @@ function playToggle() {
   if (isPlaying) {
     isPlaying = false;
     sound.pause();
-    document.getElementById("playToggle").textContent = "Play";
+    document.getElementById("playToggle").textContent = "►";
   }
   else {
     isPlaying = true;
     sound.play();
-    document.getElementById("playToggle").textContent = "Pause";
+    document.getElementById("playToggle").textContent = "	■";
   }
 }
 
@@ -81,17 +85,21 @@ function forwardButton() {
 }
 
 function backButton() {
-  curSong -= 1;
+  curSong += songs.length - 1;
   curSong %= songs.length;
   changeSong();
 }
 
 function navbarTransparent() {
-  console.log("wow");
   document.getElementById("navbar").style.opacity = 0;
 }
 
 function navbarShow() {
-  console.log("should show");
   document.getElementById("navbar").style.opacity = 1;
+}
+
+document.getElementById("myRange").addEventListener('input', updateVolume);
+
+function updateVolume() {
+  sound.volume(document.getElementById("myRange").value/100);
 }

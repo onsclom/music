@@ -8,13 +8,16 @@
     <title>musicToChillAndCodeTo</title>
 </head>
 <body id="bodyId">
-    <script src="main.js"></script>
-
     <div class="navbar" id="navbar" onmouseout="navbarTransparent()" onmouseover="navbarShow()">
         <div class="textHolder">
             <a onclick="backButton()"> << </a>
-            <a onclick="playToggle()" id="playToggle">Play</a>
+            <a onclick="playToggle()" id="playToggle">	► </a>
+            <div class="slideContainer">
+                <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            </div>
             <a onclick="forwardButton()"> >> </a>
       </div>
+      
+      <script src="main.js"></script>
 </body>
 </html>
