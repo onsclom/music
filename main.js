@@ -1,11 +1,12 @@
 songs = ["adam1.mp3","adam2.mp3","adam3.mp3","adam4.mp3","adam5.mp3"]
 curSong = 0
+curVolume = .5;
 
 var sound = new Howl({
   src: ["songs/"+songs[0]],
   format: ['mp3'],
   loop: false,
-  volume: .5
+  volume: curVolume
 });
 
 sound.on('end', function() {
@@ -21,7 +22,7 @@ function changeSong() {
     src: ["songs/"+songs[curSong]],
     format: ['mp3'],
     loop: false,
-    volume: .5
+    volume: curVolume
   });
 
   if (isPlaying) {
@@ -102,4 +103,5 @@ document.getElementById("myRange").addEventListener('input', updateVolume);
 
 function updateVolume() {
   sound.volume(document.getElementById("myRange").value/100);
+  curVolume = document.getElementById("myRange").value/100;
 }
