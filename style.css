@@ -59,13 +59,15 @@ body {
 
 .slideContainer {
   margin: auto 0;
+  display: flex;
+  vertical-align: center;
 }
 
 .slider {
   -webkit-appearance: none;
   margin: auto;
   width: 100%;
-  height: min(3vw,2rem);
+  height: min(2vw,1rem);
   border-radius: 5px;  
   background: rgb(236, 236, 236);
   outline: none;
@@ -76,16 +78,16 @@ body {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: min(4vw,3rem);
-  height: min(4vw,3rem);
+  width: min(3vw,4rem);
+  height: min(3vw,4rem);
   border-radius: 50%; 
   background: rgb(63, 63, 63);
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 2rem;
-  height: 2rem;
+  width: min(3vw,4rem);
+  height: min(3vw,4rem);
   border-radius: 50%;
   background: rgb(63, 63, 63);
   cursor: pointer;
