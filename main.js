@@ -1,5 +1,6 @@
-songs = ["adam1","adam2","adam3","adam4","adam5"]
-curSong = 0
+songs = ["Here In The Skies","That Chip Tune","The Tune That Goes \"EEE\"","Trapeez","Yogi Berra's Chill Out Tune"]
+curSong = 0;
+let curArtist = "Adam Neely";
 curVolume = .5;
 
 var sound = new Howl({
@@ -15,7 +16,7 @@ sound.on('end', function() {
   changeSong();
 });
 
-document.getElementById("songName").textContent = songs[curSong];
+document.getElementById("songName").textContent = songs[curSong] + " - " + curArtist;
 
 function changeSong() {
   sound.stop();
@@ -26,7 +27,7 @@ function changeSong() {
     loop: false,
     volume: curVolume
   });
-  document.getElementById("songName").textContent = songs[curSong];
+  document.getElementById("songName").textContent = songs[curSong] + " - " + curArtist;
 
   if (isPlaying) {
     sound.play();
