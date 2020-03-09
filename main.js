@@ -9,13 +9,13 @@ var sound = new Howl({
   volume: curVolume
 });
 
-document.getElementById("songName").textContent = songs[curSong];
-
 sound.on('end', function() {
   curSong += 1;
   curSong %= songs.length;
   changeSong();
-})
+});
+
+document.getElementById("songName").textContent = songs[curSong];
 
 function changeSong() {
   sound.stop();
@@ -33,6 +33,8 @@ function changeSong() {
   }
 
   sound.on('end', function() {
+    curSong += 1;
+    curSong %= songs.length;
     changeSong();
   });
 }
@@ -107,4 +109,33 @@ document.getElementById("myRange").addEventListener('input', updateVolume);
 function updateVolume() {
   sound.volume(document.getElementById("myRange").value/100);
   curVolume = document.getElementById("myRange").value/100;
+}
+
+let settings = false;
+function myFunction(x) {
+  x.classList.toggle("change");
+  if (!x.classList.contains("change"))
+  {
+    document.getElementById("settings").style.height = "0rem";
+  }
+  else
+  {
+    //document.getElementById("settings").style.height = "auto";
+    console.log(document.getElementById("settings").scrollHeight);
+    document.getElementById("settings").style.height = document.getElementById("settings").scrollHeight+"px";
+  }
+  
+}
+
+window.addEventListener("resize", fixSettings);
+
+function fixSettings()
+{
+  if (document.getElementById("container").classList.contains("change"))
+  {
+    console.log("WOW!");
+    document.getElementById("settings").style.height = "auto";
+    document.getElementById("settings").style.height = document.getElementById("settings").scrollHeight+"px";
+    console.log(document.getElementById("settings").scrollHeight+"px");
+  }
 }

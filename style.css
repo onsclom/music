@@ -2,6 +2,7 @@ html {
   height: 100%;
   font-family: "Courier New", Courier, monospace;
   color: rgb(236, 236, 236);
+  line-height: 2rem;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 30vh;
+  height: 25vh;
   display: flex; /* or inline-flex */
   justify-content: space-between;
 }
@@ -97,7 +98,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 30vh;
+  height: 15vh;
   display: flex; /* or inline-flex */
   justify-content: space-evenly;
   font-size: min(6vw, 2rem);
@@ -105,4 +106,66 @@ body {
 
 .topNavbar p {
   margin: .5rem 0rem;
+  vertical-align: middle;
+}
+
+
+
+.container {
+  position: fixed;
+  left: .5rem;
+  margin: .5rem .5rem;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: rgb(236, 236, 236);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+.settings {
+  height: 0;
+  transition: height 1s ease;
+  margin: 15vh 0 25vh 0;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
+  overflow-y:scroll;
+}
+
+.settingsHolder {
+  height: 100%;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.settingsBox {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-style: solid;
+  border-color: white;
+  border-width: .1rem;
+  margin: 0 auto 1rem auto;
 }

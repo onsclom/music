@@ -10,8 +10,46 @@
 </head>
 <body id="bodyId">
     <div class="topNavbar">
-        <p id="songName"> songName </p>
+        <div class="container" id="container" onclick="myFunction(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <p id="songName"> 
+            songName 
+        </p>
     </div>
+
+    <div class="settings" id="settings">
+        <div class="settingsHolder">
+            <div class="settingsBox">
+                <h1>gif settings</h1>
+                <label for="giphyWord">giphy keyword:</label>
+                <input type="text" id="giphyWord" name="giphyWord" value="synthwave"> <br>
+                <label for="gifDur">gif duration:</label>
+                <input type="text" id="gifDur" name="gifDur" value="5"> <br>
+            </div>
+            <div class="settingsBox">
+                <h1>playlist</h1>
+                <label for="playlists">current playlist:</label>
+                <select id="playlists">
+                    <option value="volvo">adam neely</option>
+                    <option value="saab">something 2</option>
+                    <option value="mercedes">something 3</option>
+                </select> <br>
+                <label for="loop">loop:</label>
+                <input type="checkbox" id="loop" name="loop" checked> <br>
+            </div>
+            <div class="settingsBox">
+                <h1>hide settings</h1>
+                <label for="hideTop">auto-hide top:</label>
+                <input type="checkbox" id="hideTop" name="hideTop"> <br>
+                <label for="hideBottom">auto-hide bottom:</label>
+                <input type="checkbox" id="hideBottom" name="hideBottom" checked> <br>
+            </div>
+        </div>
+    </div>
+
     <div class="navbar" id="navbar" onmouseout="navbarTransparent()" onmouseover="navbarShow()">
         <div class="textHolder">
             <a onclick="backButton()"> << </a>
