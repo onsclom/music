@@ -67,7 +67,7 @@ body {
   -webkit-appearance: none;
   margin: auto;
   width: 100%;
-  height: min(2vw,1rem);
+  height: max(1vw,.5rem);
   border-radius: 5px;  
   background: rgb(236, 236, 236);
   outline: none;
@@ -78,16 +78,16 @@ body {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: min(3vw,4rem);
-  height: min(3vw,4rem);
+  width: max(1.5vw,1.5rem);
+  height: max(1.5vw,1.5rem);
   border-radius: 50%; 
   background: rgb(63, 63, 63);
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: min(3vw,4rem);
-  height: min(3vw,4rem);
+  width: max(1.5vw,1.5rem);
+  height: max(1.5vw,1.5rem);
   border-radius: 50%;
   background: rgb(63, 63, 63);
   cursor: pointer;
