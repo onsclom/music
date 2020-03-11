@@ -1,4 +1,7 @@
-songs = ["Here In The Skies","That Chip Tune","The Tune That Goes \"EEE\"","Trapeez","Yogi Berra's Chill Out Tune"]
+songs = ["Here In The Skies","That Chip Tune","The Tune That Goes \"EEE\"","Trapeez","Yogi Berra's Chill Out Tune"];
+gifKeyword = "synthwave";
+gifTime = 5;
+
 curSong = 0;
 let curArtist = "Adam Neely";
 curVolume = .5;
@@ -47,26 +50,33 @@ let gifTotal = 100;
 
 function getGifs() {
   let gifs;
-  fetch('https://api.giphy.com/v1/gifs/search?api_key=Y4rrTavmb3YXxa8cJYvXG4g6zGwzw3qD&q=synthwave&limit=' + gifTotal + '&offset=0&rating=G&lang=en')
+  console.log(gifKeyword, gifTotal);
+  fetch('https://api.giphy.com/v1/gifs/search?api_key=Y4rrTavmb3YXxa8cJYvXG4g6zGwzw3qD&q=' + gifKeyword + '&limit=' + gifTotal + '&offset=0&rating=G&lang=en')
   .then((response) => {
     return response.json();
   })
   .then((data) => {
     gifs = data.data;
-    document.getElementById("bodyId").style.backgroundImage = "url(" + gifs[0].images.original.url + ")";
+    document.getElementById("bodyId").style.backgroundImage = "url(" + gifs[0].images.downsized_large.url + ")";
   })
   .then(() => {
     console.log(gifs);
-    gifLoop(gifs);
+    let curKey = gifKeyword;
+    gifLoop(gifs, curKey);
   });
 }
 
-//setNewGif();
+function gifLoop(gifs, curKeyword) {
+  if (curKeyword != gifKeyword)
+  {
+    return;
+  }
 
-function gifLoop(gifs) {
-  curGif = Math.floor(Math.random() * Math.floor(gifTotal));
+  console.log("new gif with keyword: " + curKeyword);
+  curGif = Math.floor(Math.random() * Math.floor(gifs.length));
   document.getElementById("bodyId").style.backgroundImage = "url(" + gifs[curGif].images.original.url + ")";
-  setTimeout(gifLoop, 10000, gifs);
+
+  setTimeout(gifLoop, gifTime*1000, gifs, curKeyword);
 }
 
 getGifs();
@@ -139,4 +149,15 @@ function fixSettings()
     document.getElementById("settings").style.height = document.getElementById("settings").scrollHeight+"px";
     console.log(document.getElementById("settings").scrollHeight+"px");
   }
+}
+
+function updateGifs()
+{
+  gifKeyword = document.getElementById("giphyWord").value;
+  getGifs();
+}
+
+function updateGifTime()
+{
+  gifTime = document.getElementById("gifDur").value;
 }
