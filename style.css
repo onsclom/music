@@ -1,5 +1,8 @@
 html {
   height: 100%;
+  font-family: "Courier New", Courier, monospace;
+  color: rgb(236, 236, 236);
+  line-height: 2rem;
 }
 
 body {
@@ -7,7 +10,6 @@ body {
   padding: 0;
   height: 100%;
   background-color: black;
-  color: white;
   /* contain */
   background-size: cover;
   background-repeat:  no-repeat;
@@ -22,7 +24,7 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 30vh;
+  height: 25vh;
   display: flex; /* or inline-flex */
   justify-content: space-between;
 }
@@ -31,15 +33,13 @@ body {
 .navbar a {
   cursor: pointer;
   display: inline-block;
-  color: #f2f2f2;
   text-align: center;
   text-decoration: none;
   font-size: min(6vw, 3rem);
-  opacity: .7;
   border-radius: 3vw;
-  margin: 0 2rem;
   padding: 1vw;
-  transition: background-color .5s ease;
+  transition: all .3s ease;
+  opacity: .8;
 }
 
 .textHolder {
@@ -47,46 +47,131 @@ body {
   bottom: 0;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 1rem 0;
 }
 
 /* Change the color of links on hover */
 .navbar a:hover {
-  background-color: #ddd;
-  color: black;
+  /* background-color: #ddd; */
+  transform: scale(1.3);
+  opacity: 1;
 }
 
 .slideContainer {
   margin: auto 0;
+  display: flex;
+  vertical-align: center;
 }
 
 .slider {
   -webkit-appearance: none;
+  margin: auto;
   width: 100%;
-  height: 15px;
+  height: max(1vw,.5rem);
   border-radius: 5px;  
-  background: #d3d3d3;
+  background: rgb(236, 236, 236);
   outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-}
+  opacity: .8;
+  
+} 
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: max(1.5vw,1.5rem);
+  height: max(1.5vw,1.5rem);
   border-radius: 50%; 
   background: rgb(63, 63, 63);
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+  width: max(1.5vw,1.5rem);
+  height: max(1.5vw,1.5rem);
   border-radius: 50%;
-  background: #4CAF50;
+  background: rgb(63, 63, 63);
   cursor: pointer;
 }
+
+.topNavbar {
+  background-image: linear-gradient(rgb(0, 0, 0),rgba(0, 0, 0, 0));
+  opacity: 1;
+  transition: opacity .4s;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 15vh;
+  display: flex; /* or inline-flex */
+  justify-content: space-evenly;
+  font-size: min(6vw, 2rem);
+}
+
+.topNavbar p {
+  margin: .5rem 0rem;
+  vertical-align: middle;
+  font-size: 2.5vw;
+}
+
+.container {
+  position: fixed;
+  left: .5rem;
+  margin: .5rem .5rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: rgb(236, 236, 236);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+.settings {
+  height: 0;
+  transition: height 1s ease;
+  margin: 15vh 0 0 0;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+}
+
+.settingsHolder {
+  height: 100%;
+  display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.settingsBox {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-style: solid;
+  border-color: white;
+  border-width: .1rem;
+  margin: 0 auto 1rem auto;
+  width: 17rem;
+}
+
