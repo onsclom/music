@@ -111,7 +111,7 @@ body {
 .topNavbar p {
   margin: .5rem 0rem;
   vertical-align: middle;
-  font-size: 2.5vw;
+  font-size: min(6vw, 2rem);
 }
 
 .container {
