@@ -1,4 +1,10 @@
-songs = ["adam1.mp3","adam2.mp3","adam3.mp3","adam4.mp3","adam5.mp3"]
+songAmount = 21
+songs = []
+for (let x = 1; x<=songAmount; x++)
+{
+  songs.push("song"+x+".mp3")
+}
+
 curSong = 0
 curVolume = .5;
 
