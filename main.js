@@ -63,7 +63,7 @@ function getGifs() {
   })
   .then((data) => {
     gifs = data.data;
-    document.getElementById("bodyId").style.backgroundImage = "url(" + gifs[0].images.downsized_large.url + ")";
+    document.getElementById("bodyId").style.backgroundImage = "url(" + gifs[0].images.original.url + ")";
   })
   .then(() => {
     console.log(gifs);
